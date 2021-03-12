@@ -79,3 +79,10 @@
 /home/biorobotics/titanCode/build/eigenbot/eigenbot_moveit_config/CMakeFiles/install/local.dir
 /home/biorobotics/titanCode/build/eigenbot/eigenbot_moveit_config/CMakeFiles/rebuild_cache.dir
 /home/biorobotics/titanCode/build/eigenbot/eigenbot_moveit_config/CMakeFiles/install.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/install/strip.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/edit_cache.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/list_install_components.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/test.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/install/local.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/rebuild_cache.dir
+/home/biorobotics/titanCode/build/titan_base/CMakeFiles/install.dir

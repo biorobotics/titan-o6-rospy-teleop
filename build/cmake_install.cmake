@@ -135,6 +135,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/biorobotics/titanCode/build/eigenbot/eigenbot/cmake_install.cmake")
   include("/home/biorobotics/titanCode/build/eigenbot/eigenbot_driver/cmake_install.cmake")
   include("/home/biorobotics/titanCode/build/eigenbot/eigenbot_moveit_config/cmake_install.cmake")
+  include("/home/biorobotics/titanCode/build/titan_base/cmake_install.cmake")
 
 endif()
 

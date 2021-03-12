@@ -1003,6 +1003,24 @@ eigenbot/eigenbot_moveit_config/preinstall:
 .PHONY : eigenbot/eigenbot_moveit_config/preinstall
 
 #=============================================================================
+# Directory level rules for directory titan_base
+
+# Convenience name for "all" pass in the directory.
+titan_base/all:
+
+.PHONY : titan_base/all
+
+# Convenience name for "clean" pass in the directory.
+titan_base/clean:
+
+.PHONY : titan_base/clean
+
+# Convenience name for "preinstall" pass in the directory.
+titan_base/preinstall:
+
+.PHONY : titan_base/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

@@ -358,7 +358,7 @@ gtest_hide_internal_symbols:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/melodic/lib/librostime.so
+lib:FILEPATH=/opt/ros/melodic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
@@ -392,6 +392,12 @@ titan6_description_BINARY_DIR:STATIC=/home/biorobotics/titanCode/build/eigenbot/
 
 //Value Computed by CMake
 titan6_description_SOURCE_DIR:STATIC=/home/biorobotics/titanCode/src/eigenbot/misc/titan6_description
+
+//Value Computed by CMake
+titan_base_BINARY_DIR:STATIC=/home/biorobotics/titanCode/build/titan_base
+
+//Value Computed by CMake
+titan_base_SOURCE_DIR:STATIC=/home/biorobotics/titanCode/src/titan_base
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/melodic/share/xmlrpcpp/cmake
@@ -506,7 +512,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
