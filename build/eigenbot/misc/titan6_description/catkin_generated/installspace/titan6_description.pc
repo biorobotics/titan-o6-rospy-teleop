@@ -1,0 +1,8 @@
+prefix=/home/biorobotics/titanCode/install
+
+Name: titan6_description
+Description: Description of titan6_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

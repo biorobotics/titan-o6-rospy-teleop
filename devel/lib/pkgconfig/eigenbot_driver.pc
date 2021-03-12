@@ -1,0 +1,8 @@
+prefix=/home/biorobotics/titanCode/devel
+
+Name: eigenbot_driver
+Description: Description of eigenbot_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/biorobotics/titanCode/install
+
+Name: eigenbot
+Description: Description of eigenbot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

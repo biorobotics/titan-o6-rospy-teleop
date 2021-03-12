@@ -1,0 +1,6 @@
+[submodule "src/eigenbot"]
+	path = src/eigenbot
+	url = https://github.com/biorobotics/eigenbot.git
+[submodule "src/py_con"]
+	path = src/py_con
+	url = https://github.com/mhugunin/py_con.git
