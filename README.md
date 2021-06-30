@@ -1,118 +1,118 @@
 # titanCode
 
-PERATING TITAN6
+	OPERATING TITAN6
 
-Batteries:
-	Main batteries - Nominal voltage 50 v, can charge up to 5 amps
-	Computer battery (LiGo) - Nominal voltage 36 v, can charge up to 3 amps
+	Batteries:
+		Main batteries - Nominal voltage 50 v, can charge up to 5 amps
+		Computer battery (LiGo) - Nominal voltage 36 v, can charge up to 3 amps
 
-E stop (on the leg) - controls power to modules
-M stop (wireless) - prevents commanded movements 
+	E stop (on the leg) - controls power to modules
+	M stop (wireless) - prevents commanded movements 
 
-Module Lights:
-	M stop engaged : yellow and red flashing
-	M stop disengaged : blue and green flashing
-	Encoder problem : red flashing
+	Module Lights:
+		M stop engaged : yellow and red flashing
+		M stop disengaged : blue and green flashing
+		Encoder problem : red flashing
 
-Running Joystick script:
-	
-	Power On: 
+	Running Joystick script:
 
-		Plug LiGo battery and switch it on (There are two anderson connectors that need to be connected)
-	
-		With  M stop engaged, disengage E stop
+		Power On: 
 
-	Connecting to onboard computer:
+			Plug LiGo battery and switch it on (There are two anderson connectors that need to be connected)
 
-		TITAN wifi network will show up once the LiGo has been plugged in and powered on. Connect to TITAN from your computer
+			With  M stop engaged, disengage E stop
 
-		(TERMINAL 1) From a terminal
-			ssh biorobotics@titanuc
-			(password is "biorobotics")
-			(Proper directories are sourced on startup for running joystick control)
-		
-		(TERMINAL 1) Next run
-			roslaunch eigenbot_driver titan_driver.launch
-			(this launch the controller that allows the modules to be commanded)
-	
+		Connecting to onboard computer:
 
-	Zeroing Joints:
+			TITAN wifi network will show up once the LiGo has been plugged in and powered on. Connect to TITAN from your computer
 
-		With robot powered off or M stopped (it is easier to move the joints if there are no power to the modules), move all joints so that shins of robot are vertical and all waist (horizontal) joints are centered. (Note that you can turn off the modules by pressing the e stop without turning off the computer)
+			(TERMINAL 1) From a terminal
+				ssh biorobotics@titanuc
+				(password is "biorobotics")
+				(Proper directories are sourced on startup for running joystick control)
 
-		Make sure the modules are on and M stopped if you turned them off in the previous step
+			(TERMINAL 1) Next run
+				roslaunch eigenbot_driver titan_driver.launch
+				(this launch the controller that allows the modules to be commanded)
 
-		(TERMINAL 2) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
-		(TERMINAL 2) from this terminal run
-			rostopic echo /titan/joint/fb/
-			(this will display all module feedback)
-			(titan_driver must be launched for this comand to display module feedback)
+		Zeroing Joints:
 
-		(TERMINAL 3) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
+			With robot powered off or M stopped (it is easier to move the joints if there are no power to the modules), move all joints so that shins of robot are vertical and all waist (horizontal) joints are centered. (Note that you can turn off the modules by pressing the e stop without turning off the computer)
 
-		(TERMINAL 3) from this terminal navigate to titanCode
-			cd titanCode
+			Make sure the modules are on and M stopped if you turned them off in the previous step
 
-		(TERMINAL 3) from titanCode run
-			./zeroJoints
-			(this should set all of the module positions to zero)
+			(TERMINAL 2) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
-		(TERMINAL 2) Look at the previous terminal and confirm that all position values are reading zero
-			(some of the values will not be zero as they are the force values from the foot sensors. You can distinguish these as the corresponding index of the "name" array will be a number in the 60s)
-			(Mostly we are checking to make sure none of the joints are randomly reading large numbers)
+			(TERMINAL 2) from this terminal run
+				rostopic echo /titan/joint/fb/
+				(this will display all module feedback)
+				(titan_driver must be launched for this comand to display module feedback)
 
-		If joint values look good after zeroing, you can disengage the M stop, otherwise, run ./zeroJoints again and check the values
-			(toggling the e stop may also help if joints are still acting up)
+			(TERMINAL 3) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
-	Running Joystick Control:
+			(TERMINAL 3) from this terminal navigate to titanCode
+				cd titanCode
 
-		Once titan_drivers are launched and joints are zeroed, you are ready to run Joystick Control!
+			(TERMINAL 3) from titanCode run
+				./zeroJoints
+				(this should set all of the module positions to zero)
 
-		Turn on the joystick by pressing the big button in the middle 
-			(the top left and top right lights should be on)
-			(pressing the center button will toggle control modes)
+			(TERMINAL 2) Look at the previous terminal and confirm that all position values are reading zero
+				(some of the values will not be zero as they are the force values from the foot sensors. You can distinguish these as the corresponding index of the "name" array will be a number in the 60s)
+				(Mostly we are checking to make sure none of the joints are randomly reading large numbers)
 
-		(TERMINAL 4) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
+			If joint values look good after zeroing, you can disengage the M stop, otherwise, run ./zeroJoints again and check the values
+				(toggling the e stop may also help if joints are still acting up)
 
-		(TERMINAL 4) Now launch the ros joystick node to allow for the joystick to communicate with the robot
-			rosrun joy joy_node
-			(you can check to see if the joystick is sending signal by running rostopic echo joy (use another terminal for this))
+		Running Joystick Control:
 
-		(TERMINAL 5) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
+			Once titan_drivers are launched and joints are zeroed, you are ready to run Joystick Control!
 
-		(TERMINAL 5) from this terminal navigate to py_con
-			cd titanCode/src/py_con/
+			Turn on the joystick by pressing the big button in the middle 
+				(the top left and top right lights should be on)
+				(pressing the center button will toggle control modes)
 
-		(TERMINAL 5) from py_con run
-			python3 titan.py ROS
-			(this will run the controller)
+			(TERMINAL 4) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
-	Joystick Controls:
+			(TERMINAL 4) Now launch the ros joystick node to allow for the joystick to communicate with the robot
+				rosrun joy joy_node
+				(you can check to see if the joystick is sending signal by running rostopic echo joy (use another terminal for this))
 
-		X - stand up/sit down
-		L stick - strafe
-		R stick - turn
-		(EigenBus is facing forward wrt the robot)
-		(Small commands go a long way!)
-		(O6 is very large and will take a while to complete a step once you tell it to)
+			(TERMINAL 5) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
-	Powering Off:
+			(TERMINAL 5) from this terminal navigate to py_con
+				cd titanCode/src/py_con/
 
-		(TERMINAL 5) Use control C while selecting the terminal running titan.py to stop the controller
+			(TERMINAL 5) from py_con run
+				python3 titan.py ROS
+				(this will run the controller)
 
-		From any terminal that is SSHed and has nothing running, run
-			sudo halt
-			(password "biorobotics")
+		Joystick Controls:
 
-		Engage E stop to power off Modules
+			X - stand up/sit down
+			L stick - strafe
+			R stick - turn
+			(EigenBus is facing forward wrt the robot)
+			(Small commands go a long way!)
+			(O6 is very large and will take a while to complete a step once you tell it to)
 
-		Turn off LiGo battery
+		Powering Off:
 
-	Diagnosing Problems:
+			(TERMINAL 5) Use control C while selecting the terminal running titan.py to stop the controller
 
-		If modules turns red, power cycling the robot should fix this 
-		Leg bending inward - If you see a leg bending inward under the center body, try to support the robot best you can and M stop. This position can easily cause the leg to snap
+			From any terminal that is SSHed and has nothing running, run
+				sudo halt
+				(password "biorobotics")
+
+			Engage E stop to power off Modules
+
+			Turn off LiGo battery
+
+		Diagnosing Problems:
+
+			If modules turns red, power cycling the robot should fix this 
+			Leg bending inward - If you see a leg bending inward under the center body, try to support the robot best you can and M stop. This position can easily cause the leg to snap
 
 
 
