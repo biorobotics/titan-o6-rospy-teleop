@@ -1,0 +1,27 @@
+#This file runs PyCon which enables Joystick Control of O6
+
+roslaunch eigenbot_driver titan_driver.launch
+
+sleep .5 
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+sleep .5
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+sleep .5
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+rostopic pub -1 eigenbot/in std_msgs/String "data: 'FFZ'"
+
+sleep .5
+
+rosrun joy joy_node
+
+python3 src/py_con/titan.py ROS
