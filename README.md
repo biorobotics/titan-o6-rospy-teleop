@@ -47,7 +47,7 @@
 			(TERMINAL 2) Open a new terminal and ssh into the robot computer (see "connecting to onboard computer")
 
 			(TERMINAL 2) from this terminal run
-				rostopic echo /titan/joint/fb/
+				rostopic echo /titan/joint/fb
 				(this will display all module feedback)
 				(titan_driver must be launched for this comand to display module feedback)
 
