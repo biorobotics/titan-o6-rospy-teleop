@@ -1,4 +1,6 @@
 # titanCode
+	S
+
 
 	OPERATING TITAN6
 
@@ -25,7 +27,7 @@
 		Connecting to onboard computer:
 
 			TITAN wifi network will show up once the LiGo has been plugged in and powered on. Connect to TITAN from your computer
-
+				Password: biorobotics
 			(TERMINAL 1) From a terminal
 				ssh biorobotics@titanuc
 				(password is "biorobotics")
