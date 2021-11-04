@@ -81,9 +81,9 @@ if __name__ == "__main__":
         0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0
         ], dtype='f')
-    titan.linJointSpaceTraj( rospy.Duration(3), zeros, titan.realCenters)
-    waveSimple(titan, rospy.Duration(10))
-    titan.linJointSpaceTraj( rospy.Duration(3), titan.sentJointPositions, zeros)    
+    titan.linJointSpaceTraj( rospy.Duration(20), zeros, zeros)
+    #waveSimple(titan, rospy.Duration(10))
+    #titan.linJointSpaceTraj( rospy.Duration(3), titan.sentJointPositions, zeros)    
         #Joint positions should be at 'center'
     #titan.linJointSpaceTraj( rospy.Duration(3), titan.jointCenters)#centering Joint Positions
     #titan.linJointSpaceTraj( rospy.Duration(3), titan.jointZero)#Sitting down

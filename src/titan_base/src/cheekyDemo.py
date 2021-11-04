@@ -11,7 +11,7 @@ def waveSimple(titan, runtime):
     set_pos = copy.deepcopy(np.reshape(titan.sentJointPositions, (3, 6)))
 
     t_start = rospy.Time.now()
-    legNum = 0;
+    legNum = 1;
     kill = False
     waistStart = set_pos[0][legNum]
     hipStart = set_pos[1][legNum]
@@ -24,8 +24,8 @@ def waveSimple(titan, runtime):
             print('waving')
             completion = 5*(t_elapsed/runtime)
             set_pos[0][legNum] = waistStart + 0.5*(0.3 * sin(2*pi*completion - (pi/2)) +0.3)
-            #set_pos[1][0] = hipStart + 0.3 * sin(2*pi*completion + pi)
-            set_pos[2][legNum] = kneeStart - 0.1 * cos(4*pi*completion - (pi)) -0.1
+            set_pos[1][legNum] = hipStart + 0.3 * sin(2*pi*completion + pi)
+            set_pos[2][legNum] = kneeStart - 0.3 * cos(4*pi*completion - (pi)) -0.3
         else:
             #set_pos = copy.deepcopy(center3d)
             kill = True
@@ -108,36 +108,40 @@ if __name__ == "__main__":
         0.5, -0.5, 0.5, 0.5, 0.5, 0.5,
         -0.3, 0, -0.3, -0.3, -0.3, -0.3
         ])
-    
-    titan.linJointSpaceTraj( rospy.Duration(5), zeros, Stand)#Stand
-
+    legUp = np.array([
+        0, 0, 0, 0, 0, 0,
+        -0.3, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0
+        ], dtype='f')  
+    #titan.linJointSpaceTraj( rospy.Duration(5), zeros, Stand)#Stand
+    titan.linJointSpaceTraj( rospy.Duration(3), zeros, legUp)
     #PAUSE
-    while(True):
-        titan.linJointSpaceTraj( rospy.Duration(1), Stand, Stand)
-        titan.linJointSpaceTraj( rospy.Duration(3), Stand, ThreelegStand)
+    #while(True):
+        #titan.linJointSpaceTraj( rospy.Duration(1), Stand, Stand)
+        #titan.linJointSpaceTraj( rospy.Duration(3), Stand, ThreelegStand)
         
         #rockSimple( titan, rospy.Duration(3))
 
-        titan.linJointSpaceTraj( rospy.Duration(3), ThreelegStand, Stand)
-        titan.linJointSpaceTraj( rospy.Duration(1), Stand, Stand)
-        titan.linJointSpaceTraj( rospy.Duration(3), Stand, OtherThreelegStand)
+        #titan.linJointSpaceTraj( rospy.Duration(3), ThreelegStand, Stand)
+        #titan.linJointSpaceTraj( rospy.Duration(1), Stand, Stand)
+        #titan.linJointSpaceTraj( rospy.Duration(3), Stand, OtherThreelegStand)
         
         #rockSimple( titan, rospy.Duration(3))
         
-        titan.linJointSpaceTraj( rospy.Duration(3), OtherThreelegStand, Stand)
-    end
+        #titan.linJointSpaceTraj( rospy.Duration(3), OtherThreelegStand, Stand)
+    #end
     #titan.linJointSpaceTraj( rospy.Duration(5), ThreelegStand, ThreelegStand)
     #titan.linJointSpaceTraj( rospy.Duration(5), ThreelegStand, Stand)
     #titan.linJointSpaceTraj( rospy.Duration(3), Stand, ThreelegStand)#Get into waving stance
     
-    #waveSimple(titan, rospy.Duration(8))#Give a wave
+    waveSimple(titan, rospy.Duration(8))#Give a wave
     
     #titan.linJointSpaceTraj( rospy.Duration(3), ThreelegStand, Stand)
 
     #PAUSE
     #titan.linJointSpaceTraj( rospy.Duration(3), Stand, Stand)
 
-    titan.linJointSpaceTraj( rospy.Duration(5), Stand, zeros)#Back to Standing
+    #titan.linJointSpaceTraj( rospy.Duration(5), Stand, zeros)#Back to Standing
     
     
         #Joint positions should be at 'center'
