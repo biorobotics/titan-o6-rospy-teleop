@@ -1,2 +1,0 @@
-eigenbot/eigenbot:eigenbot/eigenbot_driver:eigenbot/eigenbot_moveit_config:eigenbot/misc/titan6_description:titan_base
--DCATKIN_DEVEL_PREFIX=/home/biorobotics/titanCode/devel -DCMAKE_INSTALL_PREFIX=/home/biorobotics/titanCode/install -G Unix Makefiles

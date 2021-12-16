@@ -3,4 +3,4 @@
 	url = https://github.com/biorobotics/eigenbot.git
 [submodule "src/py_con"]
 	path = src/py_con
-	url = https://github.com/mhugunin/py_con.git
+	url = https://github.com/biorobotics/o6_py_con.git
