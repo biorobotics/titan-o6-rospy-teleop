@@ -38,8 +38,18 @@ Included Packages:
 		run this command
 			./runPyCon.sh
 			(Should take 8 seconds to startup)
+			
 		Turn on joystick, and make sure the top two of the lights are on.
 		Disengage M stop and control normally
+		
+		Joystick Controls:
+
+			X - stand up/sit down
+			L stick - strafe
+			R stick - turn
+			(EigenBus is facing forward wrt the robot)
+			(Small commands go a long way!)
+			(O6 is very large and will take a while to complete a step once you tell it to)
 
 	Running Joystick script Manually:
 
