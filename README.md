@@ -24,9 +24,10 @@ Included Packages:
 
 	Running Smart Startup Script:
 	
-		Plug in LiGo, and turn it on. Also disengage E stop to turn on robot. 
-
-		Make sure Joints are zeroed (keep M stop Engaged)
+		Plug in LiGo, and turn it on. This will turn on the computer on Titan.
+		Make sure the robot is physically in a zero position (each leg in neutral position, longest link perpendicular to the groud)
+		Disengage E stop to turn on robot. (keep wireless M stop Engaged)
+		Wait till the wifi network named "Titan" shows up on your laptop, connect to the Titan network using a laptop.
 
 		From a terminal
                                 ssh biorobotics@titanuc
