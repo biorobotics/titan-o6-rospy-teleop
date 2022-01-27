@@ -33,12 +33,12 @@ Included Packages:
                                 ssh biorobotics@titanuc
                                 (password is "biorobotics")
 		
-		Navigate to titanCode folder
+		Navigate to titanCode folder 
 
 		run this command
 			./runPyCon.sh
 			(Should take 8 seconds to startup)
-		
+		Turn on joystick, and make sure the top two of the lights are on.
 		Disengage M stop and control normally
 
 	Running Joystick script Manually:
